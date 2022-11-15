@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Common\Abstractions\" />
+    <Folder Include="SpotRate\Handlers\CommandHandlers\" />
+    <Folder Include="SpotRate\Handlers\QueryHandlers\" />
+    <Folder Include="SpotRate\Requests\CommandRequests\" />
+    <Folder Include="SpotRate\Requests\QueryRequests\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.17" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FH.Domain\FH.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
