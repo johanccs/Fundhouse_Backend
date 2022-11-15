@@ -12,11 +12,11 @@ namespace FH.Data.DBContext
         }
 
         public DbSet<HistoryEntity> History { get; set; }
-        public DbSet<SpotRateEntity> SpotRates { get; set; }
+        public DbSet<QuoteEntity> SpotRates { get; set; }
 
-        Task<int> IAppDbContext.SaveChanges()
+        public async Task<int>SaveChangesAsync()
         {
-            throw new System.NotImplementedException();
+            return await base.SaveChangesAsync();
         }
     }
 }

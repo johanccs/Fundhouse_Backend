@@ -5,11 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Extensions\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FH.Application\FH.Application.csproj" />
+    <ProjectReference Include="..\FH.Domain\FH.Domain.csproj" />
+    <ProjectReference Include="..\FH.Infrastructure\FH.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
