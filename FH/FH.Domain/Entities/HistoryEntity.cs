@@ -14,5 +14,10 @@ namespace FH.Domain.Entities
 
             Id = _internalId;
         }
+
+        public override void Validate(string baseCcy, string quoteCcy, decimal amount)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
