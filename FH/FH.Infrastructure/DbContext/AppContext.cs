@@ -1,5 +1,5 @@
 ﻿using FH.Application.Common.Abstractions;
-using FH.Domain.Entities;
+using FH.Domain.DbModels;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
@@ -11,8 +11,8 @@ namespace FH.Data.DBContext
         {
         }
 
-        public DbSet<HistoryEntity> History { get; set; }
-        public DbSet<QuoteEntity> SpotRates { get; set; }
+        public DbSet<History> History { get; set; }
+        //public DbSet<QuoteEntity> SpotRates { get; set; }
 
         public async Task<int>SaveChangesAsync()
         {

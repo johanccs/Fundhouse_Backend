@@ -25,6 +25,7 @@ namespace FH.Api
 
             services.AddControllers();
             services.RegisterServices();
+            services.RegisterDatabase(Configuration);
             services.AddMediatR(typeof(MediatEntryPoint).Assembly);
             services.AddSwaggerGen(c =>
             {
