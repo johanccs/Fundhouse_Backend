@@ -11,6 +11,7 @@ namespace FH.Domain.Entities
         public decimal Amount { get; private set; } = -1;
         public decimal QuoteAmount { get; private set; } = -1;
         public DateTime Date { get; set; } = DateTime.Now.Date;
+        public decimal Value { get; set; }
 
         public QuoteEntity()
         {
@@ -40,6 +41,7 @@ namespace FH.Domain.Entities
             quote.BaseCcy = spotRate.BaseCurrencyCode;
             quote.QuoteCcy = spotRate.ExchangeCurencyCode;
             quote.QuoteAmount = spotRate.Value * amount;
+            quote.Value = spotRate.Value;
 
             return quote;
         }
