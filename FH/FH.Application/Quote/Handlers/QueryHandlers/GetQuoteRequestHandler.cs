@@ -36,6 +36,8 @@ namespace FH.Application.Quote.Handlers.QueryHandlers
           
             _ = await _historyRepo.AddToHistory(quote.BaseCcy, quote.QuoteCcy, quote.Date, quote.Value);
 
+          
+
             return quote;
         }
 

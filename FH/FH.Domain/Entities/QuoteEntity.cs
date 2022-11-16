@@ -1,6 +1,8 @@
-﻿using FH.Domain.Exceptions;
+﻿using FH.Domain.DbModels;
+using FH.Domain.Exceptions;
 using FH.Domain.ValueObjects;
 using System;
+using System.Collections.Generic;
 
 namespace FH.Domain.Entities
 {
@@ -12,10 +14,12 @@ namespace FH.Domain.Entities
         public decimal QuoteAmount { get; private set; } = -1;
         public DateTime Date { get; set; } = DateTime.Now.Date;
         public decimal Value { get; set; }
+        public List<History>History { get; set; }
 
         public QuoteEntity()
         {
             Id = new QuoteEntityId().Create();
+            History = new List<History>();
         }
 
         public QuoteEntity(string baseCcy, string quoteCcy, decimal amount)
