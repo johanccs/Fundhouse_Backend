@@ -25,10 +25,10 @@ jobs:
 
     # Install the .NET Core workload
     - name: Install Dependencies
-      run:  dotnet restore
+      run:  dotnet restore ./FH.sln
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build FH/FH.Api.csproj --configuration Release --no-restore
      
     # Execute all unit tests in the solution
     - name: Execute unit tests
-      run: dotnet test
+      run: dotnet test ./FH.sln
