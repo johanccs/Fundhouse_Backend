@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FH.Application.History.Handlers.QueryHandlers
 {
-    public class GetHistoryQueryHandler : IRequestHandler<GetHistoryRequest, IEnumerable<Domain.DbModels.History>>
+    public sealed class GetHistoryQueryHandler : IRequestHandler<GetHistoryRequest, IEnumerable<Domain.DbModels.History>>
     {
         #region Readonly Fields
 
@@ -28,8 +28,8 @@ namespace FH.Application.History.Handlers.QueryHandlers
 
         public async Task<IEnumerable<Domain.DbModels.History>> Handle(GetHistoryRequest request, CancellationToken cancellationToken)
         {
-            var result = await _historyRepo.GetHistoryByCurrencyCode(request.BaseCurrency, request.ExchangeCurrency);
-
+            IEnumerable<Domain.DbModels.History>result = await _historyRepo.GetHistoryByCurrencyCode(request.BaseCurrency, request.ExchangeCurrency);
+            
             return result;
         }
 

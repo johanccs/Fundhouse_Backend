@@ -13,7 +13,7 @@ namespace FH.Data.DBContext
         }
 
         public DbSet<History> History { get; set; }
-        public DbSet<QuoteEntity> SpotRates { get; set; }
+        //public DbSet<QuoteEntity> SpotRates { get; set; }
        
         public async Task<int>SaveChangesAsync()
         {

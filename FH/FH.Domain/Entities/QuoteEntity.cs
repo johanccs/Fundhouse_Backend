@@ -1,37 +1,41 @@
 ﻿using FH.Domain.DbModels;
 using FH.Domain.Exceptions;
-using FH.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 
 namespace FH.Domain.Entities
 {
-    public class QuoteEntity : BaseEntity
+    public sealed class QuoteEntity 
     {
-        public string BaseCcy { get; private set; } = string.Empty;
-        public string QuoteCcy { get; private set; } = string.Empty;
-        public decimal Amount { get; private set; } = -1;
-        public decimal QuoteAmount { get; private set; } = -1;
-        public DateTime Date { get; set; } = DateTime.Now.Date;
-        public decimal Value { get; set; }
-        public List<History>History { get; set; }
+        public string BaseCcy { get; private set; }
+        public string QuoteCcy { get; private set; }
+        public decimal Amount { get; private set; }
+        public decimal QuoteAmount { get; private set; }
+        public DateTime Date { get; private set; } 
+        public decimal ConversionRate { get; private set; }
+        public IEnumerable<History>History { get; set; }
 
         public QuoteEntity()
         {
-            Id = new QuoteEntityId().Create();
             History = new List<History>();
+            Amount = -1;
+            QuoteAmount = -1;
+            ConversionRate = 0.0M;
+            Date = DateTime.Now.Date;
         }
 
-        public QuoteEntity(string baseCcy, string quoteCcy, decimal amount)
+        public QuoteEntity(string baseCcy, string quoteCcy, decimal amount, decimal conversionRate=0, decimal quoteAmount=0)
         {
             try
             {
                 Validate(baseCcy, quoteCcy, amount);
 
-                Id = new QuoteEntityId().Create();
                 BaseCcy = baseCcy;
                 QuoteCcy = quoteCcy;
                 Amount = amount;
+                QuoteAmount = quoteAmount;
+                ConversionRate = conversionRate;
+                Date = DateTime.Now.Date;
             }
             catch (Exception)
             {
@@ -39,18 +43,7 @@ namespace FH.Domain.Entities
             }
         }
 
-        public static QuoteEntity CalculateQuoteAmount(SpotRate spotRate, decimal amount)
-        {
-            var quote = new QuoteEntity();
-            quote.BaseCcy = spotRate.BaseCurrencyCode;
-            quote.QuoteCcy = spotRate.ExchangeCurencyCode;
-            quote.QuoteAmount = spotRate.Value * amount;
-            quote.Value = spotRate.Value;
-
-            return quote;
-        }
-
-        public override void Validate(string baseCcy, string quoteCcy, decimal amount)
+        public void Validate(string baseCcy, string quoteCcy, decimal amount)
         {
             if (string.IsNullOrEmpty(baseCcy))
                 throw new InvalidQuoteEntityException("Base Currency must contain a value");

@@ -1,5 +1,6 @@
 ﻿using FH.Application.Common.Abstractions;
 using FH.Data.DBContext;
+using FH.External.External;
 using FH.Infrastructure.Repositories;
 using FH.Infrastructure.Services;
 using FH.Services.Contracts;
@@ -18,6 +19,8 @@ namespace FH.Api.Extensions
             services.AddScoped<ICurrencyService, CurrencyService>();
             services.AddScoped<IQuoteService, QuoteService>();
             services.AddScoped<IAppDbContext, AppContext>();
+            services.AddScoped<IExternalCurrencyApi, ExternalCurrencyApi>();
+            services.AddScoped<IHistoryService, HistoryService>();
 
             return services;
         }
