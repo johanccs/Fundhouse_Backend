@@ -27,7 +27,7 @@ jobs:
     - name: Install Dependencies
       run:  dotnet restore ./FH/FH.sln
     - name: Build
-      run: dotnet build ./FH/FH.Api.csproj --configuration Release --no-restore
+      run: dotnet build ./FH/FH.Api/FH.Api.csproj --configuration Release --no-restore
      
     # Execute all unit tests in the solution
     - name: Execute unit tests
