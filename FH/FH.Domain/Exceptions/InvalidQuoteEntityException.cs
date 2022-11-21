@@ -2,7 +2,8 @@
 
 namespace FH.Domain.Exceptions
 {
-    public class InvalidQuoteEntityException: Exception
+    [Serializable]
+    public sealed class InvalidQuoteEntityException: Exception
     {
         public InvalidQuoteEntityException(string message):base(message)
         {

@@ -49,6 +49,8 @@ namespace FH.Api
 
             app.UseAuthorization();
 
+            app.UseCors(options => options.AllowAnyMethod().AllowAnyOrigin().AllowAnyHeader());
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

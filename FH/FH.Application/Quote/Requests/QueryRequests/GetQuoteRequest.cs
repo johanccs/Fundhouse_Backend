@@ -3,7 +3,7 @@ using MediatR;
 
 namespace FH.Application.Quote.Requests.QueryRequests
 {
-    public class GetQuoteRequest : IRequest<QuoteEntity>
+    public sealed class GetQuoteRequest : IRequest<QuoteEntity>
     {
         public QuoteEntity QuoteEntity { get; set; }
 

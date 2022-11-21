@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace FH.Application.History.Requests.Queries
 {
-    public class GetHistoryRequest: IRequest<IEnumerable<Domain.DbModels.History>>
+    public sealed class GetHistoryRequest: IRequest<IEnumerable<Domain.DbModels.History>>
     {
         public string BaseCurrency { get; set; }
         public string ExchangeCurrency { get; set; }
