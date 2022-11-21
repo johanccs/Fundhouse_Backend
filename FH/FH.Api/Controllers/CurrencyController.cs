@@ -44,9 +44,6 @@ namespace FH.Api.Controllers
                 if (currencies == null)
                     return NotFound();
 
-                List<PropertyInfo> props = typeof(Symbols).GetProperties()
-                      .Where(x => x.PropertyType == typeof(string)).ToList();
-
                 IEnumerable<Currency> c =currencies.GetType().GetProperties()
                     .Where(x => x.PropertyType == typeof(string))
                     .Select(x => new Currency(x.Name, x.GetValue(currencies).ToString()));
