@@ -25,7 +25,7 @@ jobs:
 
     # Install the .NET Core workload
     - name: Install Dependencies
-      run:  dotnet restore ./FH.sln
+      run:  dotnet restore ./FH/FH.sln
     - name: Build
       run: dotnet build FH/FH.Api.csproj --configuration Release --no-restore
      
