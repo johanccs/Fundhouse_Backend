@@ -1,14 +1,18 @@
 ﻿using FH.Api.Dtos;
+using FH.Application.History.Requests.Queries;
 using FH.Application.Quote.Requests.QueryRequests;
+using FH.Domain.DbModels;
 using FH.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace FH.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class QuotesController : ControllerBase
     {
@@ -43,13 +47,18 @@ namespace FH.Api.Controllers
                 if (amount < 0)
                     throw new ArgumentNullException(nameof(amount), "Invalid parameter");
 
-                var result = await _mediator.Send(new GetQuoteRequest(MapToEntity(new QuoteRequestDto() {
+                QuoteEntity quoteResult = await _mediator.Send(new GetQuoteRequest(MapToEntity(new QuoteRequestDto() {
                     Amount = amount,
                     BaseCcy = baseCcy,
                     QuoteCcy = quoteCcy
                 })));
 
-                return Ok(MapToDto(result));
+                IEnumerable<History> history = await _mediator.Send(new GetHistoryRequest(baseCcy, quoteCcy));
+
+                //Customer history
+                quoteResult.History = history;
+
+                return Ok(MapToDto(quoteResult));
             }
             catch (Exception ex)
             {
@@ -64,7 +73,25 @@ namespace FH.Api.Controllers
         private static QuoteEntity MapToEntity(QuoteRequestDto dto) => new QuoteEntity(dto.BaseCcy, dto.QuoteCcy, dto.Amount);
 
         private static QuoteResponseDto MapToDto(QuoteEntity entity) =>
-            new QuoteResponseDto { BaseCcy = entity.BaseCcy, Date = entity.Date, QuoteAmount = entity.QuoteAmount, QuoteCcy = entity.QuoteCcy };
+            new QuoteResponseDto
+            {
+                BaseCcy = entity.BaseCcy,
+                Date = entity.Date,
+                QuoteAmount = entity.QuoteAmount,
+                QuoteCcy = entity.QuoteCcy,
+                History = MaptoHistoryDto(entity.History)
+            };
+
+        private static List<HistoryDto>MaptoHistoryDto(IEnumerable<History>history)
+        {
+            var historyList = new List<HistoryDto>();
+            history.ToList().ForEach(x =>
+            {
+                historyList.Add(new HistoryDto { Rate = x.Value, Timestamp = x.Date });
+            });
+
+            return historyList;
+        }
 
         #endregion
 

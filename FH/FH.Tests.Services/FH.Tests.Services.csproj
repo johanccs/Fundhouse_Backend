@@ -19,4 +19,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FH.Application\FH.Application.csproj" />
+    <ProjectReference Include="..\FH.Infrastructure\FH.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

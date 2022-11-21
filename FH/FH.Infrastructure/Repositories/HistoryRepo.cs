@@ -51,8 +51,8 @@ namespace FH.Infrastructure.Repositories
         public async Task<IEnumerable<History>> GetHistoryByCurrencyCode(string baseCur, string exchCur)
         {
             return await Task.FromResult(_dbContext.History.AsNoTracking()
-                    .Where(x => x.BaseCurrency == baseCur)
-                    .Where(y => y.ExchangeCurrency == exchCur)
+                    .Where(x => x.BaseCurrency.ToUpper().Equals(baseCur.ToUpper()))
+                    .Where(y => y.ExchangeCurrency.ToUpper().Equals(exchCur.ToUpper()))
                     .OrderByDescending(p => p.Date)
                     .Take(5));
         }
