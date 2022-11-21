@@ -6,191 +6,179 @@ namespace FH.Domain.ValueObjects
     public class Root
     {
         public bool success { get; set; }
-        public Symbols symbols { get; set; }
+        public Symbols symbols { get; set; } = new();
     }
 
     public class Symbols
     {
-        public string AED { get; set; }
-        public string AFN { get; set; }
-        public string ALL { get; set; }
-        public string AMD { get; set; }
-        public string ANG { get; set; }
-        public string AOA { get; set; }
-        public string ARS { get; set; }
-        public string AUD { get; set; }
-        public string AWG { get; set; }
-        public string AZN { get; set; }
-        public string BAM { get; set; }
-        public string BBD { get; set; }
-        public string BDT { get; set; }
-        public string BGN { get; set; }
-        public string BHD { get; set; }
-        public string BIF { get; set; }
-        public string BMD { get; set; }
-        public string BND { get; set; }
-        public string BOB { get; set; }
-        public string BRL { get; set; }
-        public string BSD { get; set; }
-        public string BTC { get; set; }
-        public string BTN { get; set; }
-        public string BWP { get; set; }
-        public string BYN { get; set; }
-        public string BYR { get; set; }
-        public string BZD { get; set; }
-        public string CAD { get; set; }
-        public string CDF { get; set; }
-        public string CHF { get; set; }
-        public string CLF { get; set; }
-        public string CLP { get; set; }
-        public string CNY { get; set; }
-        public string COP { get; set; }
-        public string CRC { get; set; }
-        public string CUC { get; set; }
-        public string CUP { get; set; }
-        public string CVE { get; set; }
-        public string CZK { get; set; }
-        public string DJF { get; set; }
-        public string DKK { get; set; }
-        public string DOP { get; set; }
-        public string DZD { get; set; }
-        public string EGP { get; set; }
-        public string ERN { get; set; }
-        public string ETB { get; set; }
-        public string EUR { get; set; }
-        public string FJD { get; set; }
-        public string FKP { get; set; }
-        public string GBP { get; set; }
-        public string GEL { get; set; }
-        public string GGP { get; set; }
-        public string GHS { get; set; }
-        public string GIP { get; set; }
-        public string GMD { get; set; }
-        public string GNF { get; set; }
-        public string GTQ { get; set; }
-        public string GYD { get; set; }
-        public string HKD { get; set; }
-        public string HNL { get; set; }
-        public string HRK { get; set; }
-        public string HTG { get; set; }
-        public string HUF { get; set; }
-        public string IDR { get; set; }
-        public string ILS { get; set; }
-        public string IMP { get; set; }
-        public string INR { get; set; }
-        public string IQD { get; set; }
-        public string IRR { get; set; }
-        public string ISK { get; set; }
-        public string JEP { get; set; }
-        public string JMD { get; set; }
-        public string JOD { get; set; }
-        public string JPY { get; set; }
-        public string KES { get; set; }
-        public string KGS { get; set; }
-        public string KHR { get; set; }
-        public string KMF { get; set; }
-        public string KPW { get; set; }
-        public string KRW { get; set; }
-        public string KWD { get; set; }
-        public string KYD { get; set; }
-        public string KZT { get; set; }
-        public string LAK { get; set; }
-        public string LBP { get; set; }
-        public string LKR { get; set; }
-        public string LRD { get; set; }
-        public string LSL { get; set; }
-        public string LTL { get; set; }
-        public string LVL { get; set; }
-        public string LYD { get; set; }
-        public string MAD { get; set; }
-        public string MDL { get; set; }
-        public string MGA { get; set; }
-        public string MKD { get; set; }
-        public string MMK { get; set; }
-        public string MNT { get; set; }
-        public string MOP { get; set; }
-        public string MRO { get; set; }
-        public string MUR { get; set; }
-        public string MVR { get; set; }
-        public string MWK { get; set; }
-        public string MXN { get; set; }
-        public string MYR { get; set; }
-        public string MZN { get; set; }
-        public string NAD { get; set; }
-        public string NGN { get; set; }
-        public string NIO { get; set; }
-        public string NOK { get; set; }
-        public string NPR { get; set; }
-        public string NZD { get; set; }
-        public string OMR { get; set; }
-        public string PAB { get; set; }
-        public string PEN { get; set; }
-        public string PGK { get; set; }
-        public string PHP { get; set; }
-        public string PKR { get; set; }
-        public string PLN { get; set; }
-        public string PYG { get; set; }
-        public string QAR { get; set; }
-        public string RON { get; set; }
-        public string RSD { get; set; }
-        public string RUB { get; set; }
-        public string RWF { get; set; }
-        public string SAR { get; set; }
-        public string SBD { get; set; }
-        public string SCR { get; set; }
-        public string SDG { get; set; }
-        public string SEK { get; set; }
-        public string SGD { get; set; }
-        public string SHP { get; set; }
-        public string SLE { get; set; }
-        public string SLL { get; set; }
-        public string SOS { get; set; }
-        public string SRD { get; set; }
-        public string STD { get; set; }
-        public string SVC { get; set; }
-        public string SYP { get; set; }
-        public string SZL { get; set; }
-        public string THB { get; set; }
-        public string TJS { get; set; }
-        public string TMT { get; set; }
-        public string TND { get; set; }
-        public string TOP { get; set; }
-        public string TRY { get; set; }
-        public string TTD { get; set; }
-        public string TWD { get; set; }
-        public string TZS { get; set; }
-        public string UAH { get; set; }
-        public string UGX { get; set; }
-        public string USD { get; set; }
-        public string UYU { get; set; }
-        public string UZS { get; set; }
-        public string VEF { get; set; }
-        public string VND { get; set; }
-        public string VUV { get; set; }
-        public string WST { get; set; }
-        public string XAF { get; set; }
-        public string XAG { get; set; }
-        public string XAU { get; set; }
-        public string XCD { get; set; }
-        public string XDR { get; set; }
-        public string XOF { get; set; }
-        public string XPF { get; set; }
-        public string YER { get; set; }
-        public string ZAR { get; set; }
-        public string ZMK { get; set; }
-        public string ZMW { get; set; }
-        public string ZWL { get; set; }
-
-       public List<Currency>Convert()
-        {
-            List<Currency> currencies = new List<Currency>
-            {
-                new Currency(nameof(AED), AED),
-                new Currency(nameof(AFN), AFN),
-                new Currency(nameof(ALL), ALL)
-            };
-
-            return currencies;
-        }
+        public string AED { get; set; } = string.Empty;
+        public string AFN { get; set; } = string.Empty;
+        public string ALL { get; set; } = string.Empty;
+        public string AMD { get; set; } = string.Empty;
+        public string ANG { get; set; } = string.Empty;
+        public string AOA { get; set; } = string.Empty;
+        public string ARS { get; set; } = string.Empty;
+        public string AUD { get; set; } = string.Empty;
+        public string AWG { get; set; } = string.Empty;
+        public string AZN { get; set; } = string.Empty;
+        public string BAM { get; set; } = string.Empty;
+        public string BBD { get; set; } = string.Empty;
+        public string BDT { get; set; } = string.Empty;
+        public string BGN { get; set; } = string.Empty;
+        public string BHD { get; set; } = string.Empty;
+        public string BIF { get; set; } = string.Empty;
+        public string BMD { get; set; } = string.Empty;
+        public string BND { get; set; } = string.Empty;
+        public string BOB { get; set; } = string.Empty;
+        public string BRL { get; set; } = string.Empty;
+        public string BSD { get; set; } = string.Empty;
+        public string BTC { get; set; } = string.Empty;
+        public string BTN { get; set; } = string.Empty;
+        public string BWP { get; set; } = string.Empty;
+        public string BYN { get; set; } = string.Empty;
+        public string BYR { get; set; } = string.Empty;
+        public string BZD { get; set; } = string.Empty;
+        public string CAD { get; set; } = string.Empty;
+        public string CDF { get; set; } = string.Empty;
+        public string CHF { get; set; } = string.Empty;
+        public string CLF { get; set; } = string.Empty;
+        public string CLP { get; set; } = string.Empty;
+        public string CNY { get; set; } = string.Empty;
+        public string COP { get; set; } = string.Empty;
+        public string CRC { get; set; } = string.Empty;
+        public string CUC { get; set; } = string.Empty;
+        public string CUP { get; set; } = string.Empty;
+        public string CVE { get; set; } = string.Empty;
+        public string CZK { get; set; } = string.Empty;
+        public string DJF { get; set; } = string.Empty;
+        public string DKK { get; set; } = string.Empty;
+        public string DOP { get; set; } = string.Empty;
+        public string DZD { get; set; } = string.Empty;
+        public string EGP { get; set; } = string.Empty;
+        public string ERN { get; set; } = string.Empty;
+        public string ETB { get; set; } = string.Empty;
+        public string EUR { get; set; } = string.Empty;
+        public string FJD { get; set; } = string.Empty;
+        public string FKP { get; set; } = string.Empty;
+        public string GBP { get; set; } = string.Empty;
+        public string GEL { get; set; } = string.Empty;
+        public string GGP { get; set; } = string.Empty;
+        public string GHS { get; set; } = string.Empty;
+        public string GIP { get; set; } = string.Empty;
+        public string GMD { get; set; } = string.Empty;
+        public string GNF { get; set; } = string.Empty;
+        public string GTQ { get; set; } = string.Empty;
+        public string GYD { get; set; } = string.Empty;
+        public string HKD { get; set; } = string.Empty;
+        public string HNL { get; set; } = string.Empty;
+        public string HRK { get; set; } = string.Empty;
+        public string HTG { get; set; } = string.Empty;
+        public string HUF { get; set; } = string.Empty;
+        public string IDR { get; set; } = string.Empty;
+        public string ILS { get; set; } = string.Empty;
+        public string IMP { get; set; } = string.Empty;
+        public string INR { get; set; } = string.Empty;
+        public string IQD { get; set; } = string.Empty;
+        public string IRR { get; set; } = string.Empty;
+        public string ISK { get; set; } = string.Empty;
+        public string JEP { get; set; } = string.Empty;
+        public string JMD { get; set; } = string.Empty;
+        public string JOD { get; set; } = string.Empty;
+        public string JPY { get; set; } = string.Empty;
+        public string KES { get; set; } = string.Empty;
+        public string KGS { get; set; } = string.Empty;
+        public string KHR { get; set; } = string.Empty;
+        public string KMF { get; set; } = string.Empty;
+        public string KPW { get; set; } = string.Empty;
+        public string KRW { get; set; } = string.Empty;
+        public string KWD { get; set; } = string.Empty;
+        public string KYD { get; set; } = string.Empty;
+        public string KZT { get; set; } = string.Empty;
+        public string LAK { get; set; } = string.Empty;
+        public string LBP { get; set; } = string.Empty;
+        public string LKR { get; set; } = string.Empty;
+        public string LRD { get; set; } = string.Empty;
+        public string LSL { get; set; } = string.Empty;
+        public string LTL { get; set; } = string.Empty;
+        public string LVL { get; set; } = string.Empty;
+        public string LYD { get; set; } = string.Empty;
+        public string MAD { get; set; } = string.Empty;
+        public string MDL { get; set; } = string.Empty;
+        public string MGA { get; set; } = string.Empty;
+        public string MKD { get; set; } = string.Empty;
+        public string MMK { get; set; } = string.Empty;
+        public string MNT { get; set; } = string.Empty;
+        public string MOP { get; set; } = string.Empty;
+        public string MRO { get; set; } = string.Empty;
+        public string MUR { get; set; } = string.Empty;
+        public string MVR { get; set; } = string.Empty;
+        public string MWK { get; set; } = string.Empty;
+        public string MXN { get; set; } = string.Empty;
+        public string MYR { get; set; } = string.Empty;
+        public string MZN { get; set; } = string.Empty;
+        public string NAD { get; set; } = string.Empty;
+        public string NGN { get; set; } = string.Empty;
+        public string NIO { get; set; } = string.Empty;
+        public string NOK { get; set; } = string.Empty;
+        public string NPR { get; set; } = string.Empty;
+        public string NZD { get; set; } = string.Empty;
+        public string OMR { get; set; } = string.Empty;
+        public string PAB { get; set; } = string.Empty;
+        public string PEN { get; set; } = string.Empty;
+        public string PGK { get; set; } = string.Empty;
+        public string PHP { get; set; } = string.Empty;
+        public string PKR { get; set; } = string.Empty;
+        public string PLN { get; set; } = string.Empty;
+        public string PYG { get; set; } = string.Empty;
+        public string QAR { get; set; } = string.Empty;
+        public string RON { get; set; } = string.Empty;
+        public string RSD { get; set; } = string.Empty;
+        public string RUB { get; set; } = string.Empty;
+        public string RWF { get; set; } = string.Empty;
+        public string SAR { get; set; } = string.Empty;
+        public string SBD { get; set; } = string.Empty;
+        public string SCR { get; set; } = string.Empty;
+        public string SDG { get; set; } = string.Empty;
+        public string SEK { get; set; } = string.Empty;
+        public string SGD { get; set; } = string.Empty;
+        public string SHP { get; set; } = string.Empty;
+        public string SLE { get; set; } = string.Empty;
+        public string SLL { get; set; } = string.Empty;
+        public string SOS { get; set; } = string.Empty;
+        public string SRD { get; set; } = string.Empty;
+        public string STD { get; set; } = string.Empty;
+        public string SVC { get; set; } = string.Empty;
+        public string SYP { get; set; } = string.Empty;
+        public string SZL { get; set; } = string.Empty;
+        public string THB { get; set; } = string.Empty;
+        public string TJS { get; set; } = string.Empty;
+        public string TMT { get; set; } = string.Empty;
+        public string TND { get; set; } = string.Empty;
+        public string TOP { get; set; } = string.Empty;
+        public string TRY { get; set; } = string.Empty;
+        public string TTD { get; set; } = string.Empty;
+        public string TWD { get; set; } = string.Empty;
+        public string TZS { get; set; } = string.Empty;
+        public string UAH { get; set; } = string.Empty;
+        public string UGX { get; set; } = string.Empty;
+        public string USD { get; set; } = string.Empty;
+        public string UYU { get; set; } = string.Empty;
+        public string UZS { get; set; } = string.Empty;
+        public string VEF { get; set; } = string.Empty;
+        public string VND { get; set; } = string.Empty;
+        public string VUV { get; set; } = string.Empty;
+        public string WST { get; set; } = string.Empty;
+        public string XAF { get; set; } = string.Empty;
+        public string XAG { get; set; } = string.Empty;
+        public string XAU { get; set; } = string.Empty;
+        public string XCD { get; set; } = string.Empty;
+        public string XDR { get; set; } = string.Empty;
+        public string XOF { get; set; } = string.Empty;
+        public string XPF { get; set; } = string.Empty;
+        public string YER { get; set; } = string.Empty;
+        public string ZAR { get; set; } = string.Empty;
+        public string ZMK { get; set; } = string.Empty;
+        public string ZMW { get; set; } = string.Empty;
+        public string ZWL { get; set; } = string.Empty;
     }
 }
