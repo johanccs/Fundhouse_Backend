@@ -59,6 +59,7 @@ namespace FH.Api.Controllers
 
                 IEnumerable<Domain.DbModels.History> history = await _mediator.Send(new GetHistoryRequest(baseCcy, quoteCcy));
 
+                //Customer history
                 quoteResult.History = history;
 
                 return Ok(MapToDto(quoteResult));
