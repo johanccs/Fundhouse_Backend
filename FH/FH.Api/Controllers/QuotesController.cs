@@ -1,19 +1,14 @@
 ﻿using FH.Api.Dtos;
-using FH.Application.History.Requests.Queries;
 using FH.Application.Quote.Requests.QueryRequests;
 using FH.Domain.Entities;
-using FH.Domain.ValueObjects;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace FH.Api.Controllers
 {
-    [Route("api/v1/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class QuotesController : ControllerBase
     {
@@ -35,9 +30,6 @@ namespace FH.Api.Controllers
         #region Methods
 
         [HttpGet("{baseCcy}/{quoteCcy}/{amount}")]
-        [ProducesResponseType(typeof(QuoteEntity), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
         public async Task<IActionResult>GetQuote(string baseCcy, string quoteCcy, decimal amount)
         {
             try
@@ -51,17 +43,13 @@ namespace FH.Api.Controllers
                 if (amount < 0)
                     throw new ArgumentNullException(nameof(amount), "Invalid parameter");
 
-                QuoteEntity quoteResult = await _mediator.Send(new GetQuoteRequest(MapToEntity(new QuoteRequestDto() {
+                var result = await _mediator.Send(new GetQuoteRequest(MapToEntity(new QuoteRequestDto() {
                     Amount = amount,
                     BaseCcy = baseCcy,
                     QuoteCcy = quoteCcy
                 })));
 
-                IEnumerable<Domain.DbModels.History> history = await _mediator.Send(new GetHistoryRequest(baseCcy, quoteCcy));
-
-                quoteResult.History = history;
-
-                return Ok(MapToDto(quoteResult));
+                return Ok(MapToDto(result));
             }
             catch (Exception ex)
             {
@@ -75,21 +63,8 @@ namespace FH.Api.Controllers
 
         private static QuoteEntity MapToEntity(QuoteRequestDto dto) => new QuoteEntity(dto.BaseCcy, dto.QuoteCcy, dto.Amount);
 
-        private static QuoteResponseDto MapToDto(QuoteEntity entity)
-        {
-            QuoteResponseDto quoteResponse = new();
-            quoteResponse.BaseCcy = entity.BaseCcy;
-            quoteResponse.Date = entity.Date;
-            quoteResponse.QuoteAmount = entity.QuoteAmount;
-            quoteResponse.QuoteCcy = entity.QuoteCcy;
-
-            entity.History.ToList().ForEach(x =>
-            {
-                quoteResponse.History.Add(new HistoryDto() { Rate = x.Value, Timestamp = x.Date });
-            });
-
-            return quoteResponse;
-        }
+        private static QuoteResponseDto MapToDto(QuoteEntity entity) =>
+            new QuoteResponseDto { BaseCcy = entity.BaseCcy, Date = entity.Date, QuoteAmount = entity.QuoteAmount, QuoteCcy = entity.QuoteCcy };
 
         #endregion
 
