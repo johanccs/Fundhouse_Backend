@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FH.Api\FH.Api.csproj" />
     <ProjectReference Include="..\FH.Application\FH.Application.csproj" />
     <ProjectReference Include="..\FH.Infrastructure\FH.Infrastructure.csproj" />
   </ItemGroup>

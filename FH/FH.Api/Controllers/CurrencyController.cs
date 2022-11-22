@@ -1,11 +1,11 @@
-﻿using FH.Domain.ValueObjects;
+﻿using FH.Application.Common.Abstractions;
+using FH.Domain.ValueObjects;
 using FH.Services.Contracts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Threading.Tasks;
 
 namespace FH.Api.Controllers
@@ -17,14 +17,16 @@ namespace FH.Api.Controllers
         #region Readonly fields
 
         private readonly ICurrencyService _currencyService;
+        private readonly ILoggerService _loggerService;
 
         #endregion
 
         #region Ctor
 
-        public CurrencyController(ICurrencyService currencyService)
+        public CurrencyController(ICurrencyService currencyService, ILoggerService loggerService)
         {
             _currencyService = currencyService;
+            _loggerService = loggerService;
         }
 
         #endregion
@@ -47,6 +49,8 @@ namespace FH.Api.Controllers
                 IEnumerable<Currency> c =currencies.GetType().GetProperties()
                     .Where(x => x.PropertyType == typeof(string))
                     .Select(x => new Currency(x.Name, x.GetValue(currencies).ToString()));
+
+                _loggerService.LogInfo("Logger");
 
                 return Ok(c.ToList());
             }
