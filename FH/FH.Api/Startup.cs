@@ -7,6 +7,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using NLog;
+using System.IO;
 
 namespace FH.Api
 {
@@ -15,6 +17,8 @@ namespace FH.Api
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            LogManager.LoadConfiguration(string.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
+
         }
 
         public IConfiguration Configuration { get; }

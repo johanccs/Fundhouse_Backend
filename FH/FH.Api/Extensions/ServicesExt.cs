@@ -1,6 +1,7 @@
 ﻿using FH.Application.Common.Abstractions;
 using FH.Data.DBContext;
 using FH.External.External;
+using FH.External.Logger;
 using FH.Infrastructure.Repositories;
 using FH.Infrastructure.Services;
 using FH.Services.Contracts;
@@ -21,6 +22,7 @@ namespace FH.Api.Extensions
             services.AddScoped<IAppDbContext, AppContext>();
             services.AddScoped<IExternalCurrencyApi, ExternalCurrencyApi>();
             services.AddScoped<IHistoryService, HistoryService>();
+            services.AddSingleton<ILoggerService, LoggerManager>();
 
             return services;
         }

@@ -15,19 +15,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{6E6554
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{2C3BC0D6-C0A7-477D-A86B-D396060B4AC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FH.Application", "FH.Application\FH.Application.csproj", "{E13B3973-D2E4-477B-9712-D5355655A840}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FH.Application", "FH.Application\FH.Application.csproj", "{E13B3973-D2E4-477B-9712-D5355655A840}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FH.Domain", "FH.Domain\FH.Domain.csproj", "{0DE59C36-6E83-450B-A8A5-7CD3C8970728}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FH.Domain", "FH.Domain\FH.Domain.csproj", "{0DE59C36-6E83-450B-A8A5-7CD3C8970728}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FH.Infrastructure", "FH.Infrastructure\FH.Infrastructure.csproj", "{6A3E2CF6-2381-4A20-AB5E-6773140929E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FH.Infrastructure", "FH.Infrastructure\FH.Infrastructure.csproj", "{6A3E2CF6-2381-4A20-AB5E-6773140929E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FH.Api", "FH.Api\FH.Api.csproj", "{BEF945CF-4760-46C3-9606-6B1CE26DA5D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FH.Api", "FH.Api\FH.Api.csproj", "{BEF945CF-4760-46C3-9606-6B1CE26DA5D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FH.External", "FH.External\FH.External.csproj", "{86BE214F-33CA-4A60-A7C2-3A43F0092966}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FH.External", "FH.External\FH.External.csproj", "{86BE214F-33CA-4A60-A7C2-3A43F0092966}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{2F28403C-621D-4F3C-98C2-7B5469CAB5BD}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{2F28403C-621D-4F3C-98C2-7B5469CAB5BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FH.Tests.Services", "FH.Tests.Services\FH.Tests.Services.csproj", "{ADECEDDB-6CB4-48CC-82E1-7F335540ED97}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FH.Tests.Services", "FH.Tests.Services\FH.Tests.Services.csproj", "{ADECEDDB-6CB4-48CC-82E1-7F335540ED97}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
